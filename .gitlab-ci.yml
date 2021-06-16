@@ -1,9 +1,9 @@
 stages:
   - lint
 
-eslint: 
+eslint:
   stage: lint
-  variables: 
+  variables:
     NODE_VERSION: 14.17.0
   script:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
@@ -12,9 +12,9 @@ eslint:
     - npm install
     - npm run lint
 
-prettier: 
+prettier:
   stage: lint
-  variables: 
+  variables:
     NODE_VERSION: 14.17.0
   script:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash

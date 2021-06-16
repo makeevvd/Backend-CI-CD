@@ -6,21 +6,21 @@ on:
   pull_request:
     branches: [main]
 
-jobs: 
+jobs:
   eslint:
-     runs-on: ubuntu-latest
-     steps:
-        - uses:  actions/checkout@v2
-        - name: Intall NVM
-          run : curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-        - name: Activate NVM
-          run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
-        
-        - name: Install Node.js
-          env:
-            NODE_VERSION: 14.17.0
-          run: nvm install $NODE_VERSION
-        - name: Install Dependencies
-          run: npm install
-        - name: Lint source code with ESLint
-          run: npm run lint 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Intall NVM
+        run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+      - name: Activate NVM
+        run: export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" --no-use
+
+      - name: Install Node.js
+        env:
+          NODE_VERSION: 14.17.0
+        run: nvm install $NODE_VERSION
+      - name: Install Dependencies
+        run: npm install
+      - name: Lint source code with ESLint
+        run: npm run lint
