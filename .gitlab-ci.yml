@@ -1,7 +1,7 @@
 stages:
   - lint
 
-cache: 
+cache:
   key:
     files:
       - package-lock.json
