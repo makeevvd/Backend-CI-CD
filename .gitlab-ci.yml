@@ -7,6 +7,6 @@ eslint:
   script:
     - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
     - export NMV_DIR="$HOME/.nvm" && . "$NMV_DIR/nvm.sh" --no-use
-    - eval "[ -f .nmvrc ] && nmv install"
+    - eval "[ -f .nmvrc ] && nvm install"
     - npm install
     - npm run lint
