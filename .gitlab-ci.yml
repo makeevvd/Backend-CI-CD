@@ -8,10 +8,13 @@ cache:
       - package-lock.json
   paths: ['.npm/']
 
-before_script:
-  - npm ci --cache .npm --prefer-offline
+.default-cache: &default-cache
+  before_script:
+    - npm ci --cache .npm --prefer-offline
 
 eslint:
+  extends:
+    - .default-cache
   image: node:14.7.0-alpine
   stage: lint
   variables:
@@ -21,6 +24,8 @@ eslint:
     - npm run lint
 
 prettier:
+  extends:
+    - .default-cache
   image: node:14.7.0-alpine
   stage: lint
   variables:
