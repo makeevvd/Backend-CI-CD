@@ -44,13 +44,9 @@ deploy:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - echo "SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
-    - rsync -a --progress --human-readable --delete \
-      # исключить все, что есть в .gitignore
-      --exclude-from '.gitignore' \
-      # не загружаем .gitignore
-      --exclude .gitignore \
-      # не загружаем .git
-      --exclude .git \
-      # Не удаляем директорию с нашим фронтендом
-      --exclude public \
+    - rsync -a --progress --human-readable --delete
+      --exclude-from '.gitignore'
+      --exclude .gitignore
+      --exclude .git
+      --exclude public
       . deploy@172.104.154.236:~/realworld/
